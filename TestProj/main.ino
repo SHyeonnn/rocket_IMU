@@ -4,8 +4,13 @@ void setup()
 {
     BMP180 myBMP;
     IMU myIMU;
-    myBMP.test(int 10);
-    myIMU.initIMU(int 10);
+    SDcard mySD;
+    Parachute myParachute;
+    myBMP.init();
+    myIMU.init();
+    mySD.init()
+    myParachute.init();
+
 }
 
 void loop()
