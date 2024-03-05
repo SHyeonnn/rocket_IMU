@@ -8,6 +8,14 @@ public:
         x = X;
     }
 
+    void init(){
+
+    }
+    void getTemp()
+    void getPress()
+    void getAltitude()
+    
+
 }
 
 class IMU
@@ -16,4 +24,10 @@ class IMU
 
 public:
     void initIMU(int Y) { y = Y; }
+    void init()
+    void calibration()
+    void getAccel()
+    void getGyro()
+    void getMag()
+
 }
