@@ -21,7 +21,7 @@ float GyroMeasDrift = pi * (0.0f / 180.0f);      // gyroscope measurement drift 
 float beta = sqrtf(3.0f / 4.0f) * GyroMeasError; // compute beta
 float zeta = sqrtf(3.0f / 4.0f) * GyroMeasDrift; // compute zeta, the other free parameter in the Madgwick scheme usually set to a small or zero value
 
-int mpuPin 13;
+int mpuPin 13; // input pin number
 
 bool intFlag = false;
 bool newMagData = false;
@@ -168,4 +168,5 @@ void setup()
 
 void loop()
 {
+    
 }
