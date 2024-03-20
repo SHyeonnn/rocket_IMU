@@ -5,6 +5,7 @@
 #include "Wire.h"
 #include "Src/I2Cdev.h"
 #include "Src/MPU9250.h"
+#include <SoftwareSerial.h>
 /* #include end--------------------------- */
 
 /* #define begin--------------------------- */
@@ -12,6 +13,10 @@
 /* #define end--------------------------- */
 
 /* Global Variables initial begin--------------*/
+//gps part
+SoftwareSerial Gps(2, 3); //(RxPin, TxPin)
+String tempGPS;
+//mpu part
 MPU9250 accelgyro;
 I2Cdev I2C_M;
 uint8_t buffer_m[6];
@@ -43,6 +48,13 @@ float altitude;
 /* Global Variables initial end--------------*/
 
 void setup() {
+  //gps part
+  Serial.begin(9600);
+  if (Gps.available()) {
+    Serial.println("GPS is Ready...");
+    delay(1500);
+  }
+  //mpu part
   // join I2C bus (I2Cdev library doesn't do this automatically)
   Wire.begin();
   // initialize serial communication
@@ -61,6 +73,11 @@ void setup() {
 }
 
 void loop() {
+  //gps part
+  if (Gps.available()) {
+    tempGPS = Gps.read();
+  }
+  //mpu part
   getAccel_Data();
   getGyro_Data();
   getCompassDate_calibrated();  // compass data has been calibrated here
