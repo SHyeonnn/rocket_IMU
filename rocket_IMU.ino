@@ -6,11 +6,11 @@
 /* #include end--------------------------- */
 
 /* #define begin--------------------------- */
-#define PI = 3.1415926535897932384626433832795028
+//#define PI = 3.1415926535897932384626433832795028 // PI 는 아두이노 내 지원
 /* #define end--------------------------- */
 
 /* Global Variables initial begin--------------*/
-SoftwareSerial Gps(2,3); //(RxPin, TxPin)
+SoftwareSerial Gps(2, 3); //(RxPin, TxPin)
 //softwareSerial port speed up to 115200 bps
 String tempGPS;
 /* Global Variables initial end--------------*/
@@ -18,15 +18,15 @@ String tempGPS;
 void setup()
 {
   Serial.begin(9600);
-  if(Gps.available()){
-    Serial.println("GPS is Ready...")
+  if (Gps.available()) {
+    Serial.println("GPS is Ready...");
     delay(1500);
   }
 }
 
 void loop()
 {
-  if(Gps.available()){
+  if (Gps.available()) {
     tempGPS = Gps.read();
   }
 }
